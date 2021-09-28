@@ -11,7 +11,15 @@ Queue::Queue()
 
 Queue::~Queue()
 {
-	//deconstructor
+	Node* temp = head;
+	while (temp != nullptr)
+	{
+		head = head->next;
+		delete temp;
+		temp = head;
+	}
+	tail = nullptr;
+	size = 0;
 }
 
 bool const Queue::isEmpty()
